@@ -1,6 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { EmbedBuilder, PermissionsBitField } = require("discord.js");
-const { execute } = require("../ping");
 
 module.exports = {
   data: new SlashCommandBuilder()
