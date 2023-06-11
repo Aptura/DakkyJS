@@ -3,9 +3,9 @@ const { EmbedBuilder, PermissionsBitField } = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setname("kick")
+    .setName("kick")
     .setDescription("Cette commande permet de kick un utilisateur du serveur.")
-    .addUserOption((option) =>
+	.addUserOption((option) =>
       option
         .setName("pseudo")
         .setDescription("Pseudo de l'utilisateur qu'il faut kick")
@@ -15,7 +15,7 @@ module.exports = {
       option.setName("raison").setDescription("La raison du kick")
     ),
   async execute(interaction, client) {
-    const kickUser = interaction.option.getUser("pseudo");
+    const kickUser = interaction.options.getUser("pseudo");
     const kickMember = await interaction.guild.members.fetch(kickUser.id);
     const channel = interaction.channel;
 
@@ -44,7 +44,7 @@ module.exports = {
     const dmEmbed = new EmbedBuilder()
       .setColor("Red")
       .setDescription(
-        `:white_check_mark: Vous avez été kick de **${interaction.guild.name} | ${reason}`
+        `:white_check_mark: Vous avez été kick de **${interaction.guild.name}** | ${reason}`
       );
 
     const embed = new EmbedBuilder()
