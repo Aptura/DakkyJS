@@ -1,9 +1,8 @@
-const { EmbedBuilder } = require("@discordjs/builders");
 const { GuildMember } = require("discord.js");
 
 module.exports = {
   name: "guildMemberAdd",
-  description: 'Welcome',
+  description: "Welcome",
   async execute(member) {
     const { user, guild } = member;
     const welcomeChannel = member.guild.channel.cache.get(
