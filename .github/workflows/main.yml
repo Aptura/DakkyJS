@@ -1,7 +1,0 @@
----
-runs-on: self-hosted
-  tasks:
-    - name: Start pm2 bot
-      command: "pm2 start /home/aptura/DakkyJS/index.js"
-    - name: Start pm2 bot
-      command: "pm2 start /home/aptura/DakkyJS/index.js"
