@@ -1,0 +1,8 @@
+---
+- name: Déploiement auto pm2 process
+  tasks:
+    - name: Delete process pm2 0
+      command: "pm2 delete bot"
+
+    - name: Start pm2 bot
+      command: "pm2 start /root/DakkyJS/index.js"
