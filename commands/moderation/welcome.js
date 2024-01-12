@@ -8,7 +8,7 @@ module.exports = {
     const welcomeChannel = member.guild.channel.cache.get(
       "1070083254515929161"
     );
-    const welcomeMessage = `Bienvenue <@${member.id}>, met toi à l'aise ! :fox:`;
+    const welcomeMessage = `Bienvenue <@${member.id}>, met toi à l'aise ! :hello:`;
     welcomeChannel.send({ content: welcomeMessage });
   },
 };
