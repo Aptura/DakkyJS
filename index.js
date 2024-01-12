@@ -9,8 +9,6 @@ client.once(Events.ClientReady, (c) => {
   console.log(`✅ Ready! Logged in as ${c.user.tag}`);
 });
 
-client.login(token);
-
 client.commands = new Collection();
 const foldersPath = path.join(__dirname, "commands");
 const commandFolders = fs.readdirSync(foldersPath);
@@ -57,3 +55,17 @@ client.on(Events.InteractionCreate, async (interaction) => {
     }
   }
 });
+
+client.on('guildMemberAdd', (member) => {
+  const hello = client.emojis.cache.find(emoji => emoji.name === "hello");
+  const welcomeChannel = member.guild.channels.cache.get('1070083254515929161');
+  const welcomeMessage = `Bienvenue <@${member.id}>, mets-toi à l'aise ! ${hello}`;
+
+  welcomeChannel.send({ content: welcomeMessage }).then(() => {
+    // Fais d'autres choses après l'envoi du message si nécessaire
+  }).catch((error) => {
+    console.error("Erreur lors de l'envoi du message de bienvenue :", error);
+  });
+});
+
+client.login(token);
